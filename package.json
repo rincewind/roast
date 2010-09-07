@@ -1,0 +1,10 @@
+{
+    "name"          : "roast",
+    "description"   : "CoffeeScript processor",
+    "url"           : "http://github.com/chrislloyd/roast.coffee.git",
+    "keywords"      : ["coffee-script", "coffeescript", "process", "preprocessor"],
+    "author"        : "Chris Lloyd",
+    "version"       : "1.0.0",
+    "main"          : "./lib/roast.js",
+    "engines"       : { "node": ">= 0.2.0" }
+}
