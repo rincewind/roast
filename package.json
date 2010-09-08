@@ -1,10 +1,21 @@
 {
-    "name"          : "roast",
-    "description"   : "CoffeeScript processor",
-    "url"           : "http://github.com/chrislloyd/roast.coffee.git",
-    "keywords"      : ["coffee-script", "coffeescript", "process", "preprocessor"],
-    "author"        : "Chris Lloyd",
-    "version"       : "1.0.0",
-    "main"          : "./lib/roast.js",
-    "engines"       : { "node": ">= 0.2.0" }
+  "name":        "roast",
+  "version":     "1.1.1",
+  "description": "CoffeeScript processor",
+  "keywords":    ["coffee-script", "coffeescript", "process", "preprocessor"],
+  "url":         "http://github.com/chrislloyd/roast",
+  "main":        "./lib/roast.js",
+  "engines":     { "node": ">= 0.2.0" },
+  "author": {
+    "name":  "Chris Lloyd",
+    "email": "christopher.lloyd@gmail.com",
+    "url":   "http://thelincolnshirepoacher.com"
+  },
+  "repository": {
+    "type": "git",
+    "url":  "http://github.com/chrislloyd/roast.git"
+  },
+  "dependencies": {
+    "coffee-script": ">= 0.9.2"
+  }
 }

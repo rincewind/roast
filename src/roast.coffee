@@ -1,7 +1,12 @@
 fs = require 'fs'
 path = require 'path'
 
+sys = require 'sys'
+
 CoffeeScript.on 'compile', (task) ->
+  # http://github.com/jashkenas/coffee-script/pull/672
+  task.file = task.options.fileName
+
   preprocess = (fileName, src) ->
     CoffeeScript.compile src, {fileName}
 
@@ -13,6 +18,6 @@ CoffeeScript.on 'compile', (task) ->
       raw = fs.readFileSync target, 'utf8'
       src = preprocess target, raw
 
-      "\n# inlined from #{target}\n\n#{src}\n".replace /\n/g, "\n#{indent}"
+      "\n# inlined from #{target}\n\n#{src}\n".replace(/\n/g, "\n#{indent}")
 
   task.input = preprocess(task.file, task.input)
