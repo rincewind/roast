@@ -1,6 +1,6 @@
 {
   "name":        "roast",
-  "version":     "1.2.0",
+  "version":     "1.2.1",
   "description": "CoffeeScript processor",
   "keywords":    ["coffee-script", "coffeescript", "process", "preprocessor"],
   "url":         "http://github.com/chrislloyd/roast",
