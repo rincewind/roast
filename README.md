@@ -19,7 +19,6 @@ You have to require Roast at compile time.
 
 You can then use the `inline` command provided by Roast:
 
-    # main.coffee
     inline 'helpers'
 
     $ ->
@@ -38,7 +37,13 @@ This will then produce the output:
       });
     })();
 
-As it sounds, `inline` just inlines files before CoffeeScript compiles them. Just note that Roast works at compile time, so you can't pass `inline` a variable or an interpolated string, it only takes constant strings.
+Just as it sounds, `inline` just inlines files before CoffeeScript compiles them. Just note that Roast works at compile time, so you can't pass `inline` a variable or an interpolated string, it only takes constant strings.
+
+To make things easier, the path to inlined files is relative to the file you are inlining them to. For example, from `/main.coffee`, if you
+
+    inline 'src/foo'
+
+Roast will look for `/src/foo.coffee`.
 
 ## License
 
