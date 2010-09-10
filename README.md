@@ -33,13 +33,12 @@ This will then produce the output:
         return setTimeout(fn, ms);
       };
       $(function() {
-        var page_title;
-        return (page_title = 'The Lincolnshire Poacher');
+        var homepage;
+        return (homepage = 'http://thelincolnshirepoacher.com');
       });
     })();
 
-As it sounds, `inline` just inlines files before CoffeeScript compiles them.
-
+As it sounds, `inline` just inlines files before CoffeeScript compiles them. Just note that Roast works at compile time, so you can't pass `inline` a variable or an interpolated string, it only takes constant strings.
 
 ## License
 
