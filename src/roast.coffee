@@ -14,7 +14,7 @@ CoffeeScript.on 'compile', (task) ->
     ext = path.extname(fileName)
 
     # Could
-    src.replace /( *)inline(\s+|\()['"]([^'"]+)/g, (_, indent, _, target) ->
+    src.replace /( *)inline(\s+|\()['"]([^'"]+)['"]\)?/g, (_, indent, _, target) ->
 
       # All inlined files are inlined *relative* to the inlinee
       target = path.join(dir, target+ext)
