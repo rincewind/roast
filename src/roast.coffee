@@ -3,7 +3,7 @@ path = require 'path'
 
 CoffeeScript.on 'compile', (task) ->
   # Bug: http://github.com/jashkenas/coffee-script/pull/672
-  task.file = task.options.fileName
+  if CoffeeScript.VERSION <= '0.9.2' then task.file = task.options.fileName
 
   inline = (fileName, src) ->
     # Precompiles the original source file to provide pretty errors.
@@ -13,7 +13,6 @@ CoffeeScript.on 'compile', (task) ->
     dir = path.dirname(fileName)
     ext = path.extname(fileName)
 
-    # Could
     src.replace /( *)inline(\s+|\()['"]([^'"]+)['"]\)?/g, (_, indent, _, target) ->
 
       # All inlined files are inlined *relative* to the inlinee
