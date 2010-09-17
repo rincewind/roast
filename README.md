@@ -2,8 +2,7 @@
 
 by [The Lincolnshire Poacher](http://thelincolnshirepoacher.com)
 
-
-When compiling CoffeeScript it's difficult to combine several files into one. Roast gives you the `inline` command. Compile your main JS file, and `inline` all the rest.
+Roast lets you use CommonJS `require` when compiling CoffeeScript for the web.
 
 
 # Install
@@ -17,31 +16,43 @@ You have to require Roast at compile time.
 
     coffee --require roast --compile main.coffee
 
-You can then use the `inline` command provided by Roast:
+You can then use the `require` as you normally would.
 
-    inline 'helpers'
-
-    $ ->
-      inline 'constants'
+    foo = require 'foo'
+    baz = require('bar').baz
 
 This will then produce the output:
 
     (function() {
-      var delay;
-      delay = function(ms, fn) {
-        return setTimeout(fn, ms);
-      };
-      $(function() {
-        var homepage;
-        return (homepage = 'http://thelincolnshirepoacher.com');
-      });
+      var baz, exports, foo;
+      exports = {};
+      foo = (function() {
+      var beer, exports;
+      exports = {};
+      beer = true;
+      exports.awesomeness = true;
+      return exports;
     })();
+    ;
+      baz = (function() {
+      var Baz, exports;
+      exports = {};
+      exports.baz = (function() {
+        Baz = function() {
+          'http://thelincolnshirepoacher.com';
+          return this;
+        };
+        return Baz;
+      })();
+      return exports;
+    })();
+    .baz;
 
-Just as it sounds, `inline` just inlines files before CoffeeScript compiles them. Just note that Roast works at compile time, so you can't pass `inline` a variable or an interpolated string, it only takes constant strings.
+The output isn't pretty, but it works and is just waiting to be minified.
 
-To make things easier, the path to inlined files is relative to the file you are inlining them to. For example, from `/main.coffee`, if you
+The path to required files is relative to the file you are requiring them from. For example, from `/main.coffee`, if you
 
-    inline 'src/foo'
+    require 'src/foo'
 
 Roast will look for `/src/foo.coffee`.
 
@@ -54,4 +65,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
