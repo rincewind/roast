@@ -1,8 +1,8 @@
 {
   "name":        "roast",
-  "version":     "1.2.3",
-  "description": "CoffeeScript processor",
-  "keywords":    ["coffee-script", "coffeescript", "process", "preprocessor"],
+  "version":     "2.0.0",
+  "description": "CommonJS for compiled CoffeeScript.",
+  "keywords":    ["coffee-script", "coffeescript", "commonjs", "require"],
   "url":         "http://github.com/chrislloyd/roast",
   "main":        "./lib/roast.js",
   "engines":     { "node": ">= 0.2.0" },
